@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('example.db')
+conn = sqlite3.connect('cpm.db')
 
 cur = conn.cursor()
 
