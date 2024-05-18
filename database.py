@@ -3,14 +3,6 @@ import sqlite3
 conn = sqlite3.connect('management.db')
 cur = conn.cursor()
 
-cur.execute('''CREATE TABLE IF NOT EXISTS Category (
-                    id INTEGER PRIMARY KEY,
-                    name TEXT NOT NULL
-                )''')
-
-categories = ['low', 'medium', 'high', 'critical']
-for category in categories:
-    cur.execute('''INSERT INTO Category (name) VALUES (?)''', (category,))
 
 cur.execute('''CREATE TABLE IF NOT EXISTS Network_KPIs (
                     id INTEGER PRIMARY KEY,
@@ -19,12 +11,10 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Network_KPIs (
                     latency REAL,
                     packet_loss REAL,
                     network_errors INTEGER,
-                    network_availability REAL,
-                    category_id INTEGER,
-                    FOREIGN KEY (category_id) REFERENCES Category(id)
+                    network_availability REAL
                 )''')
 
-# Modify IT_Node_KPIs table to include category_id as foreign key
+
 cur.execute('''CREATE TABLE IF NOT EXISTS IT_Node_KPIs (
                     id INTEGER PRIMARY KEY,
                     timestamp TEXT,
@@ -32,10 +22,9 @@ cur.execute('''CREATE TABLE IF NOT EXISTS IT_Node_KPIs (
                     memory_utilization REAL,
                     disk_io REAL,
                     disk_usage REAL,
-                    system_uptime REAL,
-                    category_id INTEGER,
-                    FOREIGN KEY (category_id) REFERENCES Category(id)
+                    system_uptime REAL
                 )''')
+
 
 cur.execute('''CREATE TABLE IF NOT EXISTS Application_KPIs (
                     id INTEGER PRIMARY KEY,
@@ -46,9 +35,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Application_KPIs (
                     cpu_usage REAL,
                     memory_usage REAL,
                     query_execution_time REAL,
-                    db_throughput REAL,
-                    category_id INTEGER,
-                    FOREIGN KEY (category_id) REFERENCES Category(id)
+                    db_throughput REAL
                 )''')
 
 conn.commit()
