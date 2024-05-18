@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('cpm.db')
+conn = sqlite3.connect('management.db')
 
 cur = conn.cursor()
 
@@ -10,15 +10,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS users (
                email TEXT NOT NULL
             )''')
 
-cur.execute("INSERT INTO users (username, email) VALUES (?, ?)", ('john_doe', 'john@example.com'))
-cur.execute("INSERT INTO users (username, email) VALUES (?, ?)", ('jane_doe', 'jane@example.com'))
-
 conn.commit()
-
-cur.execute("SELECT * FROM users")
-print("Users:")
-for row in cur.fetchall():
-    print(row)
 
 cur.close()
 conn.close()
