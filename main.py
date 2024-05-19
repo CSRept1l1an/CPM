@@ -45,6 +45,7 @@ class GradientWidget(Widget):
         texture.blit_buffer(buf, colorfmt='rgba', bufferfmt='ubyte')
         return texture
 
+
 class LoginPage(Screen):
     def __init__(self, **kwargs):
         super(LoginPage, self).__init__(**kwargs)
@@ -108,6 +109,7 @@ class LoginPage(Screen):
             anim.cancel(self.login_button)  # Остановка предыдущей анимации
             anim.start(self.login_button)
 
+
 class MainPage(Screen):
     def __init__(self, **kwargs):
         super(MainPage, self).__init__(**kwargs)
@@ -135,8 +137,6 @@ class MainPage(Screen):
         self.menu.add_widget(quit_button)
         self.layout.add_widget(self.menu)
 
-        # Create main layout with three vertical sub-layouts
-        # Create main layout with three vertical sub-layouts
         self.main_layout = BoxLayout(orientation='vertical', spacing=10, size_hint=(1, 1),
                                      pos_hint={'center_x': 0.5, 'center_y': 0.5})
         self.create_bandwidth_graph()
@@ -259,6 +259,7 @@ class NetworkPage(Screen):
         app = App.get_running_app()
         app.root.current = 'main_page'
 
+
 class ITNodesPage(Screen):
     def __init__(self, **kwargs):
         super(ITNodesPage, self).__init__(**kwargs)
@@ -286,6 +287,7 @@ class AppPage(Screen):
     def back_to_main(self, instance):
         app = App.get_running_app()
         app.root.current = 'main_page'
+
 
 class AlertPage(Screen):
     def __init__(self, **kwargs):
@@ -405,7 +407,6 @@ class AboutPage(Screen):
         self.bg_rect.pos = instance.pos
 
     def add_top_bar(self):
-        # Create a top bar with a red line and XTI App label
         self.top_bar = BoxLayout(orientation='horizontal', size_hint=(1, None), height=50, pos_hint={'top': 1})
         self.layout.add_widget(self.top_bar)
 
@@ -476,15 +477,18 @@ class Layout1Page(Screen):
         app = App.get_running_app()
         app.root.current = 'main_page'
 
+
 class Layout2Page(Screen):
     def __init__(self, **kwargs):
         super(Layout2Page, self).__init__(**kwargs)
         self.add_widget(Label(text='Layout 2 Page'))
 
+
 class Layout3Page(Screen):
     def __init__(self, **kwargs):
         super(Layout3Page, self).__init__(**kwargs)
         self.add_widget(Label(text='Layout 3 Page'))
+
 
 class AuthApp(App):
     def build(self):
