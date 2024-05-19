@@ -244,7 +244,8 @@ for _ in range(num_entries):
             INSERT INTO Network_KPIs (timestamp, bandwidth_utilization, latency, packet_loss, network_errors, 
             network_availability, Category)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (timestamp,
+        ''', (
+              timestamp,
               network_data['Bandwidth Utilization'],
               network_data['Latency'],
               network_data['Packet Loss'],
@@ -256,7 +257,8 @@ for _ in range(num_entries):
             INSERT INTO IT_Node_KPIs (timestamp, cpu_utilization, memory_utilization, disk_io, disk_usage, 
             system_uptime, Category)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (timestamp,
+        ''', (
+              timestamp,
               it_node_data['CPU Utilization'],
               it_node_data['Memory Utilization'],
               it_node_data['Disk I/O'],

@@ -11,7 +11,6 @@ def create_graph(title, data, ylabel):
                   y_ticks_major=5, y_grid_label=True, x_grid_label=True, padding=5, x_grid=True, y_grid=True,
                   xmin=0, xmax=len(data) - 1, ymin=min(data), ymax=max(data))
 
-    # Set the title color to blue
     graph.title_color = [0, 0, 1, 1]  # Blue color
 
     plot = LinePlot(line_width=2, color=[1, 0, 0, 1])
@@ -66,5 +65,5 @@ class AuthApp(App):
 
 
 if __name__ == '__main__':
-    Window.clearcolor = (0.9, 0.9, 0.9, 1)  # Set background color to white
+    Window.clearcolor = (0.5, 0.5, 0.5, 1)
     AuthApp().run()

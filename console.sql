@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS Network_KPIs
 (
     id                    INTEGER PRIMARY KEY,
