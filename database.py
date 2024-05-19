@@ -11,7 +11,8 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Network_KPIs (
                     latency REAL,
                     packet_loss REAL,
                     network_errors INTEGER,
-                    network_availability REAL
+                    network_availability REAL,
+                    Category TEXT
                 )''')
 
 
@@ -22,7 +23,8 @@ cur.execute('''CREATE TABLE IF NOT EXISTS IT_Node_KPIs (
                     memory_utilization REAL,
                     disk_io REAL,
                     disk_usage REAL,
-                    system_uptime REAL
+                    system_uptime REAL,
+                    Category TEXT
                 )''')
 
 
@@ -35,7 +37,8 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Application_KPIs (
                     cpu_usage REAL,
                     memory_usage REAL,
                     query_execution_time REAL,
-                    db_throughput REAL
+                    db_throughput REAL,
+                    Category TEXT
                 )''')
 
 conn.commit()
